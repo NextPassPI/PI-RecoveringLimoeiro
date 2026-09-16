@@ -27,8 +27,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <span class="nav-indicator" aria-hidden="true"></span>
         <li class="nav-item">
-          <a class="nav-link active text-success bg-warning rounded-pill" aria-current="page" href="index.html">Início</a>
+          <a class="nav-link active text-success" aria-current="page" href="index.html">Início</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white" href="#">Sobre</a>
@@ -64,7 +65,129 @@
       <section class="banner-container position-relative mx-auto">
         <img src="src/assets/img/banner-limoeiro.png" class="banner img-fluid" alt="Cristo Redentor em Limoeiro">
       </section>
+
+    <!--Filtros-->
+
+      <section class="issue-filters" aria-labelledby="issue-filters-title">
+        <h2 id="issue-filters-title" class="visually-hidden">Filtros de ocorrências</h2>
+        <div class="filter-list" role="group" aria-label="Filtrar ocorrências por categoria">
+          <button class="filter-card filter-card-all is-selected" type="button" data-filter="todos" aria-pressed="true">
+            <i class="bi bi-grid-3x3-gap-fill" aria-hidden="true"></i>
+            <span>Todos</span>
+          </button>
+          <button class="filter-card filter-card-holes" type="button" data-filter="buracos" aria-pressed="false">
+            <i class="bi bi-cone-striped" aria-hidden="true"></i>
+            <span>Buracos</span>
+          </button>
+          <button class="filter-card filter-card-water" type="button" data-filter="agua" aria-pressed="false">
+            <i class="bi bi-droplet-fill" aria-hidden="true"></i>
+            <span>Água</span>
+          </button>
+          <button class="filter-card filter-card-light" type="button" data-filter="luz" aria-pressed="false">
+            <i class="bi bi-lightbulb-fill" aria-hidden="true"></i>
+            <span>Luz</span>
+          </button>
+          <button class="filter-card filter-card-trash" type="button" data-filter="lixo" aria-pressed="false">
+            <i class="bi bi-trash3-fill" aria-hidden="true"></i>
+            <span>Lixo</span>
+          </button>
+          <button class="filter-card filter-card-infrastructure" type="button" data-filter="infraestrutura" aria-pressed="false">
+            <i class="bi bi-buildings-fill" aria-hidden="true"></i>
+            <span>Infraestrutura</span>
+          </button>
+          <button class="filter-card filter-card-other" type="button" data-filter="outros" aria-pressed="false">
+            <i class="bi bi-three-dots" aria-hidden="true"></i>
+            <span>Outros</span>
+          </button>
+        </div>
+      </section>
+
+      <!--Mapa-->
+      
+      <section class="map-section" aria-labelledby="map-title">
+        <div class="map-panel">
+          <h2 id="map-title">Mapa de ocorrências</h2>
+          <div class="map-frame">
+            <iframe
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-35.52%2C-7.93%2C-35.38%2C-7.82&layer=mapnik&marker=-7.874%2C-35.45"
+              title="Mapa de Limoeiro com localização de ocorrências"
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+
+        <!--Legenda-->
+
+        <aside class="map-legend" aria-labelledby="legend-title">
+          <h2 id="legend-title">Legenda</h2>
+          <ul class="legend-list">
+            <li><span class="legend-dot legend-all"></span><span>Todos</span></li>
+            <li><span class="legend-dot legend-holes"></span><span>Buracos</span></li>
+            <li><span class="legend-dot legend-water"></span><span>Água</span></li>
+            <li><span class="legend-dot legend-light"></span><span>Luz</span></li>
+            <li><span class="legend-dot legend-trash"></span><span>Lixo</span></li>
+            <li><span class="legend-dot legend-infrastructure"></span><span>Infraestrutura</span></li>
+            <li><span class="legend-dot legend-other"></span><span>Outros</span></li>
+          </ul>
+        </aside>
+      </section>
+
+      <!--Denuncias-->
+
+      <section class="report-section bg-danger text-white" aria-labelledby="report-title">
+        <div class="container py-4 py-md-5">
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-9">
+              <div class="text-center mb-4">
+                <i class="bi bi-megaphone-fill report-icon" aria-hidden="true"></i>
+                <h2 id="report-title" class="h3 fw-bold mt-2">Faça sua denúncia</h2>
+                <p class="mb-0">Ajude a melhorar Limoeiro informando um problema da sua região.</p>
+              </div>
+
+              <form class="report-form bg-white text-dark rounded-3 p-3 p-md-4">
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label for="report-category" class="form-label fw-semibold">Categoria</label>
+                    <select id="report-category" class="form-select">
+                      <option selected>Selecione uma categoria</option>
+                      <option>Buracos</option>
+                      <option>Água</option>
+                      <option>Luz</option>
+                      <option>Lixo</option>
+                      <option>Infraestrutura</option>
+                      <option>Outros</option>
+                    </select>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="report-title-input" class="form-label fw-semibold">Título da denúncia</label>
+                    <input id="report-title-input" class="form-control" type="text" placeholder="Ex.: Poste sem iluminação">
+                  </div>
+                  <div class="col-12">
+                    <label for="report-description" class="form-label fw-semibold">Descrição</label>
+                    <textarea id="report-description" class="form-control" rows="4" placeholder="Descreva o problema encontrado"></textarea>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="report-address" class="form-label fw-semibold">Local da ocorrência</label>
+                    <input id="report-address" class="form-control" type="text" placeholder="Rua, número e bairro">
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="report-image" class="form-label fw-semibold">Imagem (opcional)</label>
+                    <input id="report-image" class="form-control" type="file" accept="image/*">
+                  </div>
+                  <div class="col-12 d-flex justify-content-end">
+                    <button class="btn btn-warning fw-bold px-4" type="button">
+                      <i class="bi bi-send-fill me-2" aria-hidden="true"></i>Enviar denúncia
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <script src="src/assets/js/script.js"></script>
     
 </body>
 </html>
