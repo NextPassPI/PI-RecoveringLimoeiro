@@ -1,0 +1,11 @@
+body{
+    font-family: "Quicksand", sans-serif;
+}
+
+.bandeira{
+    width: 100px;
+}
+
+.navbar-nav{
+    gap: 20px;
+}
